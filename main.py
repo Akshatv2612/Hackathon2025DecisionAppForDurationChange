@@ -39,7 +39,6 @@ if project_id and requested_duration:
 
         try:
             response = requests.post(url, json=payload, verify=False)
-            st.write(f"Response {response.text}")
 
             past_tense = {
                 "approve-duration": "Approved",
@@ -47,8 +46,10 @@ if project_id and requested_duration:
             }
 
             if response.ok:
+                st.write(f"Response {response.text}")
                 st.success(f"✅ Duration Change {past_tense[st.session_state.action_taken]} successfully!")
             else:
+                st.write(f"Response {response.text}")
                 st.error(f"❌ Duration Change {st.session_state.action_taken} failed.")
 
         except Exception as e:
