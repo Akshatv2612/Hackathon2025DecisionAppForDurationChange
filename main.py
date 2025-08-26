@@ -39,7 +39,7 @@ if project_id and requested_duration:
 
         try:
             response = requests.post(url, json=payload, verify=False)
-            print("Response", response.text)
+            st.write(f"Response {response.text}")
 
             past_tense = {
                 "approve-duration": "Approved",
